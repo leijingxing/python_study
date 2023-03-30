@@ -12,7 +12,7 @@ for i in range(1, 50):
     if i == 1:
         url = f'http://www.netbian.com/dongwu'
     # 获取网页
-    response = requests.get(url, headers=headers,)
+    response = requests.get(url, headers=headers, )
     # 解析网页
     soup = BeautifulSoup(response.text, 'html.parser')
     # 获取图片标签
