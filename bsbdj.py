@@ -14,13 +14,13 @@ while statusValue:
     soup = bs4.BeautifulSoup(result.text, "html.parser")
     # 查找图像
     comicElem = soup.select('.j-r-list-c-img img')
-    if comicElem == []:
+    if not comicElem:
         print('Could not find comic image')
         break
     else:
         # 下载图像
         comicUrl = comicElem[0].get('src')
-        print('Downloading image %s...' % (comicUrl))
+        print('Downloading image %s...' % comicUrl)
         res = requests.get(comicUrl)
         res.raise_for_status()
         imageFile = open(os.path.join('bsbdj', os.path.basename(comicUrl)), 'wb')
