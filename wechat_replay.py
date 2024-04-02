@@ -16,7 +16,6 @@ def reply_message_if_send_key_word(user, key_word, reply_message):
     msgs = wx.GetAllMessage
     message_value = [msg[1] for msg in msgs]
     for index, msg in enumerate(msgs):
-        
         if msg[1] == key_word:
             print("*" * 5)
             if reply_message not in message_value[index:]:
