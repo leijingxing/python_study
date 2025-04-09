@@ -4,16 +4,21 @@ import os
 from bs4 import BeautifulSoup
 
 # 设置请求头
-headers = {   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...",  # 动态生成
+    "Cookie": "cf_clearance=nF_iMFMNlPPmO...",  # 浏览器完整Cookie
+    "Referer": "http://www.netbian.com/qiche/",
+    "Accept-Encoding": "gzip, deflate"
+}
 
-title = 'meinv'
+title = 'qiche'
 
 # 遍历所有页面
 urls = []
-for i in range(1, 40):
-    url = f'http://www.netbian.com/shouji/{title}/index_{i}.htm'
+for i in range(1, 10):
+    url = f'http://www.netbian.com/{title}/index_{i}.htm'
     if i == 1:
-        url = f'http://www.netbian.com/shouji/{title}/'
+        url = f'http://www.netbian.com/{title}/'
     # 获取网页
     response = requests.get(url, headers=headers, )
     # 解析网页
